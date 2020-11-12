@@ -1,0 +1,175 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Maleteo{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <div class="container-fluid">
+            <header class="header">
+                <img src="assets/img/logo.svg" alt="Maleteo">
+            </header>
+            <style>
+                .the-form__btn{margin-top:10px;}
+                .the-form__input{margin-bottom:10px;}
+            </style>
+        </div>
+    </div>
+    <main>
+        <div class="jumbo">
+            <div class="wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="jumbo__ww-title">
+                                <div class="jumbo__w-title">
+                                    <h1 class="jumbo__title heading1">
+                                        Gana dinero guardando equipaje a viajeros como tu
+                                    </h1>
+                                    <ul class="jumbo__app-btns">
+                                        <li>
+                                            <a href="#">
+                                                <img src="assets/img/app-store.svg"
+                                                     alt=""
+                                                     class="jumbo__app-btn">
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <img src="assets/img/google-play.svg"
+                                                     alt=""
+                                                     class="jumbo__app-btn">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="container-fluid">
+                <section class="howworks">
+                    <h2 class="howworks__title heading2">
+                        ¿Cómo funciona?
+                    </h2>
+                    <ol class="howworks__steps row">
+                        <li class="col-md-4">
+                            <div class="howworks__step">
+                                <div class="howworks__step-w-bola">
+                                    <div class="howworks__step-bola">
+                                        <span class="heading3">1</span>
+                                    </div>
+                                </div>
+                                <div class="howworks__step-w-txt">
+                                    <p class="howworks__step-title heading3">
+                                        Date de alta
+                                    </p>
+                                    <p class="howworks__step-txt">
+                                        Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="howworks__step">
+                                <div class="howworks__step-w-bola">
+                                    <div class="howworks__step-bola">
+                                        <span class="heading3">1</span>
+                                    </div>
+                                </div>
+                                <div class="howworks__step-w-txt">
+                                    <p class="howworks__step-title heading3">
+                                        Date de alta
+                                    </p>
+                                    <p class="howworks__step-txt">
+                                        Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="howworks__step">
+                                <div class="howworks__step-w-bola">
+                                    <div class="howworks__step-bola">
+                                        <span class="heading3">1</span>
+                                    </div>
+                                </div>
+                                <div class="howworks__step-w-txt">
+                                    <p class="howworks__step-title heading3">
+                                        Date de alta
+                                    </p>
+                                    <p class="howworks__step-txt">
+                                        Una olla de algo más vaca que carnero, salpicón las más noches, duelos y quebrantos los sábados.
+                                    </p>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="app-form">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="app-form__w-app-img">
+                                <img src="assets/img/iPhoneX.png"
+                                     srcset="assets/img/iPhoneX@2x.png 2x, assets/img/iPhoneX.png 1x"
+                                     alt=""
+                                     class="app-form__app-img">
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-md-offset-1">
+                            <div class="the-form">
+
+                                <p class="the-form__title heading3">Solicita una demo</p>
+
+                                <!-- CARGA EL FORMULARIO CON SYMFONY 5 -->
+                                {{ form(form_solicitud) }}
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="opinions">
+                    <h2 class="opinions__title heading2">
+                        Opiniones de otros guardianes
+                    </h2>
+                    <ul class="row">
+
+                        {% for comentario in ultimos_comentarios %}
+                            <li class="col-md-4">
+                                <div class="opinion">
+                                    <blockquote class="opinion__blq simple-bubble text-large">
+                                       {{ comentario['comentario'] }}
+                                    </blockquote>
+                                    <p class="opinion__author text-large">
+                                        {{ comentario['autor'] }}
+                                    </p>
+                                    <p class="opinion__author-address">
+                                        {{ comentario['ciudad'] }}
+                                    </p>
+                                </div>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </section>
+            </div>
+        </div>
+
+    </main>
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="container-fluid">
+                <img src="assets/img/logo.svg"
+                     alt="Maleteo"
+                     class="footer__logo">
+                <p class="footer__claim">
+                    Hecho con ❤️en Madrid
+                </p>
+            </div>
+        </div>
+    </footer>
+{% endblock %}
